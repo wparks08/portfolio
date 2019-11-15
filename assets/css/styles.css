@@ -1,5 +1,9 @@
+html, body {
+    height: 100%;
+}
+
 .main-hero {
-    height: 600px;
+    height: 65%;
     overflow: hidden;
     position: relative;
 }
@@ -23,7 +27,33 @@
     text-align: right;
 }
 
-@media only screen and (max-width: 600px) {
+.card-content.about-me {
+    width: 100%;
+}
+
+.stats-list {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.stats-list li {
+    clear: both;
+    margin-bottom: 12px;
+}
+
+.stats-list .title {
+    display: block;
+    float: left;
+    width: 150px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.p2 {
+    padding: 20px 30px;
+}
+
+@media only screen and (max-width: 768px) {
     .hero-wrapper {
         margin: 0;
     }
@@ -35,5 +65,9 @@
 
     .left-bias, .right-bias {
         text-align: center;
+    }
+
+    .profile-image {
+        position: relative;
     }
 }
