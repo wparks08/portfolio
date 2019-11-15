@@ -1,0 +1,39 @@
+.main-hero {
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-wrapper {
+    width: 100%;
+    margin: 0 25% 0 25%;
+}
+
+.hero-wrapper hr {
+    border: 1px solid #b71c1c  ;
+}
+
+.left-bias {
+    width: 100%;
+    text-align: left;
+}
+
+.right-bias {
+    width: 100%;
+    text-align: right;
+}
+
+@media only screen and (max-width: 600px) {
+    .hero-wrapper {
+        margin: 0;
+    }
+
+    .hero-wrapper hr {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .left-bias, .right-bias {
+        text-align: center;
+    }
+}
