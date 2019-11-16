@@ -53,6 +53,10 @@ html, body {
     padding: 20px 30px;
 }
 
+#social-links a {
+    color: #757575;
+}
+
 @media only screen and (max-width: 768px) {
     .hero-wrapper {
         margin: 0;
