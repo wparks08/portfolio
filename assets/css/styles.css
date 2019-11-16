@@ -61,6 +61,10 @@ a {
     margin-bottom: -10px !important;
 }
 
+.fs-32 {
+    font-size: 32px;
+}
+
 #social-links a {
     color: #757575;
 }
