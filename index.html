@@ -68,27 +68,27 @@
             </div>
         </div>
         <div class="row" id="social-links">
-            <div class="col m2 s3 offset-m1 center-align grey-text text-darken-4">
+            <div class="col m2 s2 offset-m1 offset-s1 center-align grey-text text-darken-4">
                 <a href="https://www.github.com/wparks08" target="_blank"><ion-icon name="logo-github" size="large"></ion-icon></a>
             </div>
-            <div class="col m2 s3 center-align grey-text text-darken-4">
+            <div class="col m2 s2 center-align grey-text text-darken-4">
                 <a href="https://www.linkedin.com/in/will-parks-b2953048/" target="_blank"><ion-icon name="logo-linkedin" size="large"></ion-icon></a>
             </div>
-            <div class="col m2 s3 center-align grey-text text-darken-4">
+            <div class="col m2 s2 center-align grey-text text-darken-4">
                 <a href="https://twitter.com/wparks08" target="_blank"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
             </div>
-            <div class="col m2 s3 center-align grey-text text-darken-4">
+            <div class="col m2 s2 center-align grey-text text-darken-4">
                 <a href="https://www.facebook.com/wparks08" target="_blank"><ion-icon name="logo-facebook" size="large"></ion-icon></a>
             </div>
-            <div class="col m2 s3 center-align grey-text text-darken-4">
+            <div class="col m2 s2 center-align grey-text text-darken-4">
                 <a href="assets/res/Will Parks - Resume 2019.pdf" target="_blank">
                     <i class="material-icons fs-32">picture_as_pdf</i>
                 </a>
             </div>
         </div>
         <h3 class="right-align">Projects</h3>
-        <div class="row">
-            <div class="col m3 s12">
+        <div class="row flex">
+            <div class="col xl3 l4 m6 s12">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="assets/img/word-guess-game-thumb.jpg">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col m3 s12">
+            <div class="col xl3 l4 m6 s12">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="assets/img/unit-4-game-thumb.jpg">
@@ -136,7 +136,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col m3 s12">
+            <div class="col xl3 l4 m6 s12">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="assets/img/trivia-game.jpg">
@@ -164,7 +164,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col m3 s12">
+            <div class="col xl3 l4 m6 s12">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="assets/img/giphy.png">
@@ -192,9 +192,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col m3 s12">
+            <div class="col xl3 l4 m6 s12">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="assets/img/rock.png">
@@ -222,7 +220,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col m3 s12">
+            <div class="col xl3 l4 m6 s12">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="assets/img/music-hack.png">
@@ -253,6 +251,12 @@
                     </div>
                 </div>
             </div>
+            <div class="col xl3 l4 m6 s12">
+                <!-- Placeholder -->
+            </div>
+            <div class="col xl3 l4 m6 s12">
+                <!-- Placeholder -->
+            </div>
         </div>
     </div>
 
@@ -273,21 +277,25 @@
         <div class="footer-copyright">
             <div class="container">
                 © 2019 Will Parks
-                <a href="https://www.github.com/wparks08" target="_blank" class="right">
-                    <ion-icon name="logo-github" size="large"></ion-icon>
-                </a>
-                <a href="https://www.linkedin.com/in/will-parks-b2953048/" target="_blank" class="right">
-                    <ion-icon name="logo-linkedin" size="large"></ion-icon>
-                </a>
-                <a href="https://twitter.com/wparks08" target="_blank" class="right">
-                    <ion-icon name="logo-twitter" size="large"></ion-icon>
+                <a href="assets/res/Will Parks - Resume 2019.pdf" target="_blank" class="right">
+                    <i class="material-icons fs-32">picture_as_pdf</i>
                 </a>
                 <a href="https://www.facebook.com/wparks08" target="_blank" class="right">
                     <ion-icon name="logo-facebook" size="large"></ion-icon>
                 </a>
-                <a href="assets/res/Will Parks - Resume 2019.pdf" target="_blank" class="right">
-                    <i class="material-icons fs-32">picture_as_pdf</i>
+                <a href="https://twitter.com/wparks08" target="_blank" class="right">
+                    <ion-icon name="logo-twitter" size="large"></ion-icon>
                 </a>
+                <a href="https://www.linkedin.com/in/will-parks-b2953048/" target="_blank" class="right">
+                    <ion-icon name="logo-linkedin" size="large"></ion-icon>
+                </a>
+                <a href="https://www.github.com/wparks08" target="_blank" class="right">
+                    <ion-icon name="logo-github" size="large"></ion-icon>
+                </a>
+                
+               
+                
+                
             </div>
         </div>
     </footer>
@@ -312,6 +320,18 @@
     };
 
     var typed = new Typed(".typed", typedOptions);
+
+    $(document).ready(function() {
+        let maxHeight = 0;
+        let cards = $(".card");
+        cards.each(function(card) {
+            console.log($(card))
+            if ($(card).height() > 0) {
+                maxHeight = $(card).height();
+            }
+        });
+        console.log(maxHeight);
+    });
     </script>
 
 

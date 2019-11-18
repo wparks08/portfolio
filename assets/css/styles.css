@@ -65,6 +65,11 @@ a {
     font-size: 32px;
 }
 
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #social-links a {
     color: #757575;
 }
