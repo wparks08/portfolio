@@ -9,27 +9,8 @@ module.exports = function(app) {
                 addFadeToProjects(projects);
                 // Need to map projects to a new object, due to new Handlebars restrictions (>4.6.0)
                 // https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access
-                const allProjects = projects.map(project => {
-                    return {
-                        name: project.name,
-                        description: project.description,
-                        imagePath: project.imagePath,
-                        fadeIn: project.fadeIn,
-                        imageLeft: project.imageLeft,
-                        imageRight: project.imageRight,
-                        links: project.links.map(link => {
-                            return {
-                                name: link.name,
-                                url: link.url
-                            };
-                        }),
-                        stack: project.stack.map(software => {
-                            return {
-                                name: software.name
-                            }
-                        })
-                    };
-                });
+                const allProjects = convertProjectsToOwnObjects(projects);
+
                 res.render("index", {
                     projects: allProjects
                 });
@@ -74,5 +55,31 @@ function addFadeToProjects(projects) {
             project.imageLeft = false;
             project.imageRight = true;
         }
+    });
+}
+
+function convertProjectsToOwnObjects(projects) {
+    return projects.map(project => {
+        return {
+            name: project.name,
+            description: project.description,
+            imagePath: project.imagePath,
+            fadeIn: project.fadeIn,
+            imageLeft: project.imageLeft,
+            imageRight: project.imageRight,
+            links: project.links.map(link => {
+                // Same issue with Handlebars for nested objects coming back from Sequelize.
+                return {
+                    name: link.name,
+                    url: link.url
+                };
+            }),
+            stack: project.stack.map(software => {
+                // And again
+                return {
+                    name: software.name
+                };
+            })
+        };
     });
 }
