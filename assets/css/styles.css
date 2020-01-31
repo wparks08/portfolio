@@ -70,8 +70,14 @@ a {
     flex-wrap: wrap;
 }
 
-.card {
-    height: 95%; /*TODO -- temporary fix for differing project card heights*/
+.project-separator {
+    border: 0;
+    border-top: 1px solid #b71c1c;
+    margin-bottom: 1rem;
+}
+
+.valign-wrapper img {
+    width: 100%;
 }
 
 #social-links a {
