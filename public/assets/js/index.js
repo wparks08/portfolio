@@ -15,7 +15,7 @@ var typedOptions = {
     startDelay: 2000
 };
 
-Typed(".typed", typedOptions);
+var typed = new Typed(".typed", typedOptions);
 
 $(document).ready(function() {
     let tallest = 0;

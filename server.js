@@ -14,7 +14,8 @@ app.use(express.static("public"));
 
 // Initialize handlebars
 var hbrsOptions = {
-    defaultLayout: "main"
+    defaultLayout: "main",
+    allowProtoPropertiesByDefault: true
 };
 
 app.engine("handlebars", exphbrs(hbrsOptions));
