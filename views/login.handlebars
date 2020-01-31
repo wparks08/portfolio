@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Will Parks | Portfolio Admin</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/materialize.min.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
+
+</head>
+
+<body class="grey darken-4 grey-text text-lighten-5">
+    <div class="row row-wrapper">
+        <div class="valign-wrapper">
+            <div class="col m6 offset-m3 l4 offset-l4 s12">
+                <div class="card white black-text">
+                    <div class="card-content center-align">
+                        <span class="card-title">Log in</span>
+                        <div class="row">
+                            <form action="login" method="POST" class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" name="username" id="username" autocomplete="username">
+                                        <label for="username">Username</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="password" name="password" id="password"
+                                            autocomplete="current-password">
+                                        <label for="password">Password</label>
+                                    </div>
+                                </div>
+                                <button class="btn waves-effect waves-light" type="submit">Log In
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/jquery-3.4.1.js"></script>
+    <script src="../assets/js/materialize.js"></script>
+</body>
+
+</html>
