@@ -78,6 +78,7 @@ a {
 .project-separator {
     border: 0;
     border-top: 1px solid #b71c1c;
+    margin-bottom: 1rem;
 }
 
 #social-links a {
