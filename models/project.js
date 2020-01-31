@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     project.associate = function(models) {
         // associations can be defined here
         models.project.belongsToMany(models.software, {
-            as: "stack"
+            as: "stack",
+            through: "projects_software"
         });
 
         models.project.hasMany(models.link);
