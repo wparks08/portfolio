@@ -20,6 +20,9 @@ var hbrsOptions = {
 app.engine("handlebars", exphbrs(hbrsOptions));
 app.set("view engine", "handlebars");
 
+// Add routes
+require("./routes/htmlRoutes")(app);
+
 // Set sequelize options
 var syncOptions = {
     force: false
