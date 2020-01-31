@@ -1,0 +1,11 @@
+node_modules
+models/index.js
+public/assets/js/jquery.actual.js
+public/assets/js/jquery-3.4.1.js
+public/assets/js/materialize.js
+public/assets/js/materialize.min.js
+public/assets/js/typed.js
+public/assets/js/wow.js
+public/assets/css/animate.css
+public/assets/css/materialize.css
+public/assets/css/materialize.min.css
