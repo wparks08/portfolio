@@ -1,0 +1,18 @@
+<h1>Projects</h1>
+
+<div class="row">
+    <div class="col m2 s12 offset-m10">
+        <a href="projects/create" class="btn waves-effect waves-light right">Add New Project
+            <i class="material-icons left">control_point</i>
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12">
+        <div class="collection">
+            {{#each projects}}
+            <a href="projects/{{this.id}}" class="collection-item">{{this.name}}</a>
+            {{/each}}
+        </div>
+    </div>
+</div>

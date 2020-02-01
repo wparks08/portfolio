@@ -45,6 +45,7 @@ module.exports = {
         if (req.isAuthenticated()) {
             return next();
         } else {
+            req.session.returnTo = req.originalUrl;
             res.redirect("/admin/login");
         }
     }
