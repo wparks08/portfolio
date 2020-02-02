@@ -89,15 +89,20 @@
 
     $("#addLink").on("click", function (event) {
         event.preventDefault();
+        var projectId = "{{project.id}}";
 
         let link = {
             name: $("#linkName").val().trim(),
             url: $("#linkUrl").val().trim()
         };
-        $("#links").append(
-            $("<p>")
-                .addClass("link")
-                .html(`${link.name} | <a href="${link.url}" target="_blank">${link.url}</a>`)
-        );
+        // $("#links").append(
+        //     $("<p>")
+        //         .addClass("link")
+        //         .html(`${link.name} | <a href="${link.url}" target="_blank">${link.url}</a>`)
+        // );
+
+        $.post("/admin/projects/" + projectId + "/addLink", link).then(() => {
+            window.location.reload();
+        })
     });
 </script>

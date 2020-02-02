@@ -95,6 +95,24 @@ module.exports = function(app) {
             });
     });
 
+    app.post("/admin/projects/:id/addLink", auth.secureRoute, (req, res) => {
+        const newLink = {
+            name: req.body.name,
+            url: req.body.url
+        };
+
+        db.project
+            .findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(project => {
+                project.addLink(newLink);
+                res.redirect("/admin/projects/" + project.id);
+            });
+    });
+
     app.get("/admin/software", auth.secureRoute, (req, res) => {
         db.software.findAll({}).then(software => {
             const soft = software.map(s => {
