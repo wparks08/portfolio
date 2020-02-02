@@ -1,3 +1,4 @@
+<!--suppress HtmlUnknownTarget -->
 <h1>Project</h1>
 <hr>
 <div class="container">
@@ -36,12 +37,12 @@
                 <div class="row">
                     <div class="input-field col s3">
                         <input type="text" name="link.name" id="linkName">
-                        <label for="link.name">Name (Ionicon Name)</label>
+                        <label for="linkName">Name (Ionicon Name)</label>
                         <span class="helper-text">Add another link</span>
                     </div>
                     <div class="input-field col s8">
                         <input type="text" name="link.url" id="linkUrl">
-                        <label for="link.url">URL</label>
+                        <label for="linkUrl">URL</label>
                     </div>
                     <div class="input-field col s1">
                         <a class="btn-floating btn-small waves-effect waves-light green" id="addLink"><i
@@ -89,7 +90,6 @@
 
     $("#addLink").on("click", function (event) {
         event.preventDefault();
-        var projectId = "{{project.id}}";
 
         let link = {
             name: $("#linkName").val().trim(),
@@ -101,8 +101,9 @@
         //         .html(`${link.name} | <a href="${link.url}" target="_blank">${link.url}</a>`)
         // );
 
-        $.post("/admin/projects/" + projectId + "/addLink", link).then(() => {
+        $.post("/admin/projects/{{project.id}}/addLink", link, function(data) {
+            console.log(data);
             window.location.reload();
-        })
+        });
     });
 </script>

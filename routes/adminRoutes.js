@@ -53,39 +53,10 @@ module.exports = function(app) {
                 ]
             })
             .then(project => {
-                const proj = {
-                    name: project.name,
-                    description: project.description,
-                    imagePath: project.imagePath,
-                    links: project.links.map(link => {
-                        return {
-                            name: link.name,
-                            url: link.url
-                        };
-                    }),
-                    stack: project.stack.map(software => {
-                        return {
-                            name: software.name
-                        };
-                    })
-                };
+                const proj = mapProject(project);
                 db.software.findAll({}).then(software => {
-                    const soft = software.map(s => {
-                        console.log(s.dataValues.name);
-                        return {
-                            id: s.id,
-                            name: s.name
-                        };
-                    });
-
-                    proj.stack.forEach(item => {
-                        soft.forEach(softwareItem => {
-                            if (!softwareItem.checked) {
-                                let checked = softwareItem.name === item.name;
-                                softwareItem.checked = checked;
-                            }
-                        });
-                    });
+                    const soft = mapSoftware(software);
+                    addCheckedPropertyToSoftware(proj, soft);
                     res.render("project", {
                         project: proj,
                         software: soft,
@@ -100,7 +71,6 @@ module.exports = function(app) {
             name: req.body.name,
             url: req.body.url
         };
-
         db.project
             .findOne({
                 where: {
@@ -108,8 +78,11 @@ module.exports = function(app) {
                 }
             })
             .then(project => {
-                project.addLink(newLink);
-                res.redirect("/admin/projects/" + project.id);
+                db.link.create(newLink).then(link => {
+                    project.addLink(link).then(() => {
+                        res.sendStatus(200);
+                    });
+                });
             });
     });
 
@@ -134,3 +107,43 @@ module.exports = function(app) {
         });
     });
 };
+
+function mapProject(project) {
+    return {
+        id: project.id,
+        name: project.name,
+        description: project.description,
+        imagePath: project.imagePath,
+        links: mapLinks(project.links),
+        stack: mapSoftware(project.stack)
+    };
+}
+
+function mapSoftware(software) {
+    return software.map(s => {
+        console.log(s.dataValues.name);
+        return {
+            id: s.id,
+            name: s.name
+        };
+    });
+}
+
+function mapLinks(links) {
+    return links.map(link => {
+        return {
+            name: link.name,
+            url: link.url
+        };
+    });
+}
+
+function addCheckedPropertyToSoftware(proj, soft) {
+    proj.stack.forEach(item => {
+        soft.forEach(softwareItem => {
+            if (!softwareItem.checked) {
+                softwareItem.checked = softwareItem.name === item.name;
+            }
+        });
+    });
+}
