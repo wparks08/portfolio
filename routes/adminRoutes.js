@@ -66,6 +66,18 @@ module.exports = function(app) {
             });
     });
 
+    app.post("/admin/projects/:id/update", auth.secureRoute, (req, res) => {
+        // TODO handle img/file uploads here
+        // https://www.freecodecamp.org/news/how-to-set-up-simple-image-upload-with-node-and-aws-s3-84e609248792/
+        let projectValues = {
+            name: req.body.name,
+            description: req.body.description
+        };
+        db.project.update(projectValues, { where: { id: req.params.id } }).then(() => {
+            res.redirect("/admin/projects/" + req.params.id);
+        });
+    });
+
     app.post("/admin/projects/:id/addLink", auth.secureRoute, (req, res) => {
         const newLink = {
             name: req.body.name,
@@ -135,7 +147,6 @@ function mapProject(project) {
 
 function mapSoftware(software) {
     return software.map(s => {
-        console.log(s.dataValues.name);
         return {
             id: s.id,
             name: s.name
