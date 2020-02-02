@@ -69,6 +69,7 @@ module.exports = function(app) {
     app.post("/admin/projects/:id/update", auth.secureRoute, (req, res) => {
         // TODO handle img/file uploads here
         // https://www.freecodecamp.org/news/how-to-set-up-simple-image-upload-with-node-and-aws-s3-84e609248792/
+        // https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started-nodejs.html
         let projectValues = {
             name: req.body.name,
             description: req.body.description

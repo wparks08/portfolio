@@ -3,6 +3,7 @@ var express = require("express");
 var exphbrs = require("express-handlebars");
 var session = require("express-session");
 var passport = require("passport");
+var fileUpload = require("express-fileupload");
 var authentication = require("./controllers/authentication");
 
 var db = require("./models");
@@ -18,6 +19,9 @@ app.use(express.static("public"));
 app.use(session({ secret: process.env.SESSION_SECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(fileUpload({
+    limits: { fileSize: 50 * 1024 * 1024 }
+}));
 
 // Passport config
 authentication.config(passport);

@@ -9,7 +9,7 @@
 <hr>
 <div class="container">
     <div class="card black-text">
-        <form action="/admin/projects/{{project.id}}/update" method="POST">
+        <form action="/admin/projects/{{project.id}}/update" method="POST" enctype="multipart/form-data">
             <div class="card-content">
 
                 <div class="row">
@@ -28,7 +28,7 @@
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>Upload</span>
-                        <input type="file">
+                        <input type="file" name="image">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" name="imagePath" value="{{project.imagePath}}">
