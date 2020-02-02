@@ -1,3 +1,9 @@
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet"/>
+<style>
+    li {
+        color: #000000 !important;
+    }
+</style>
 <!--suppress HtmlUnknownTarget -->
 <h1>Project</h1>
 <hr>
@@ -14,7 +20,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <textarea name="description" id="description" cols="30" rows="10"
-                            class="materialize-textarea">{{project.description}}</textarea>
+                                  class="materialize-textarea">{{project.description}}</textarea>
                         <label for="description">Description</label>
                     </div>
                 </div>
@@ -30,7 +36,7 @@
                 <div class="row">
                     <div class="col s12" id="links">
                         {{#each project.links}}
-                        <p class="link">{{this.name}} | <a href="{{this.url}}" target="_blank">{{this.url}}</a></p>
+                            <p class="link">{{this.name}} | <a href="{{this.url}}" target="_blank">{{this.url}}</a></p>
                         {{/each}}
                     </div>
                 </div>
@@ -49,26 +55,13 @@
                                 class="material-icons">add</i></a>
                     </div>
                 </div>
-                {{!-- <div class="row">
-                    <div class="input-field col s12">
-                        <select multiple>
-                            {{#each software}}
-                            <option value="{{this.id}}">{{this.name}}</option>
-                            {{/each}}
-                        </select>
-                        <label>Materialize Multiple Select</label>
-                    </div>
-                </div> --}}
                 <div class="row">
                     <div class="input-field col s12">
-                        {{#each software}}
-                        <p>
-                        <label>
-                            <input type="checkbox" {{#if this.checked}}checked="checked"{{/if}}>
-                            <span>{{this.name}}</span>
-                        </label>
-                        </p>
-                        {{/each}}
+                        <select name="stack" id="stack" multiple="multiple">
+                            {{#each software}}
+                                <option value="{{this.id}}" class="black-text">{{this.name}}</option>
+                            {{/each}}
+                        </select>
                     </div>
                 </div>
             </form>
@@ -81,25 +74,38 @@
 
 <script src="/assets/js/jquery-3.4.1.js"></script>
 <script src="/assets/js/materialize.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         M.updateTextFields();
-        $("select").formSelect();
+        let stackIds = [
+            {{#each software}}
+                {{#if this.checked}}
+                    {{this.id}},
+                {{/if}}
+            {{/each}}
+        ];
+
+        $("#stack")
+                .select2()
+                .val(stackIds)
+                .trigger("change")
+                .on("change", onStackChange);
     });
 
-    $("#addLink").on("click", function (event) {
+    function onStackChange() {
+        let updatedStack = $("#stack").val();
+        $.post("/admin/projects/{{project.id}}/updateStack", { updatedStack });
+    }
+
+    $("#addLink").on("click", function(event) {
         event.preventDefault();
 
         let link = {
             name: $("#linkName").val().trim(),
             url: $("#linkUrl").val().trim()
         };
-        // $("#links").append(
-        //     $("<p>")
-        //         .addClass("link")
-        //         .html(`${link.name} | <a href="${link.url}" target="_blank">${link.url}</a>`)
-        // );
 
         $.post("/admin/projects/{{project.id}}/addLink", link, function(data) {
             console.log(data);

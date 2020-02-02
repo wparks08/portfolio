@@ -86,6 +86,20 @@ module.exports = function(app) {
             });
     });
 
+    app.post("/admin/projects/:id/updateStack", auth.secureRoute, (req, res) => {
+        let updatedStack = req.body["updatedStack[]"];
+        db.project
+            .findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(project => {
+                project.setStack(updatedStack);
+                res.sendStatus(200);
+            });
+    });
+
     app.get("/admin/software", auth.secureRoute, (req, res) => {
         db.software.findAll({}).then(software => {
             const soft = software.map(s => {
