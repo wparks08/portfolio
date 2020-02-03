@@ -16,15 +16,3 @@ var typedOptions = {
 };
 
 var typed = new Typed(".typed", typedOptions);
-
-$(document).ready(function() {
-    let tallest = 0;
-    $(".project-row").each(function() {
-        elementHeight = $(this).height();
-        if (elementHeight > tallest) {
-            tallest = elementHeight;
-        }
-    });
-
-    $(".project-row").height(tallest);
-});
