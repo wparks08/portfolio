@@ -1,6 +1,7 @@
 var auth = require("../controllers/authentication");
 var db = require("../models");
 var passport = require("passport");
+var s3 = require("../controllers/awss3");
 
 module.exports = function(app) {
     app.get("/admin/login", (req, res) => {
@@ -67,13 +68,17 @@ module.exports = function(app) {
     });
 
     app.post("/admin/projects/:id/update", auth.secureRoute, (req, res) => {
-        // TODO handle img/file uploads here
-        // https://www.freecodecamp.org/news/how-to-set-up-simple-image-upload-with-node-and-aws-s3-84e609248792/
-        // https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started-nodejs.html
         let projectValues = {
             name: req.body.name,
             description: req.body.description
         };
+
+        if (req.files) {
+            let image = req.files.image;
+            s3.upload(image.name, image.data);
+            projectValues.imagePath = image.name;
+        }
+
         db.project.update(projectValues, { where: { id: req.params.id } }).then(() => {
             res.redirect("/admin/projects/" + req.params.id);
         });

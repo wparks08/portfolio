@@ -1,4 +1,5 @@
 var db = require("../models");
+var s3 = require("../controllers/awss3");
 
 module.exports = function(app) {
     app.get("/", (req, res) => {
@@ -17,6 +18,19 @@ module.exports = function(app) {
             })
             .catch(err => {
                 res.render("500", { err });
+            });
+    });
+
+    app.get("/image/:key", (req, res) => {
+        let key = req.params.key;
+        s3.download(key)
+            .then(image => {
+                res.writeHead(200, { "Content-Type": image.ContentType });
+                res.write(image.Body, "binary");
+                res.end(null, "binary");
+            })
+            .catch(err => {
+                console.log(err, err.stack);
             });
     });
 };
