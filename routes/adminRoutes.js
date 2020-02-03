@@ -37,6 +37,20 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/admin/projects/create", auth.secureRoute, (req, res) => {
+        res.render("createProject", { layout: "admin" });
+    });
+
+    app.post("/admin/projects/create", auth.secureRoute, (req, res) => {
+        let newProject = {
+            name: req.body.name,
+            description: req.body.description
+        };
+        db.project.create(newProject).then(project => {
+            res.redirect("/admin/projects/" + project.id);
+        });
+    });
+
     app.get("/admin/projects/:id", auth.secureRoute, (req, res) => {
         db.project
             .findOne({
