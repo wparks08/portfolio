@@ -36,7 +36,6 @@ a {
 }
 
 .stats-list {
-    width: 80%;
     margin: 0 auto;
 }
 
@@ -76,8 +75,20 @@ a {
     margin-bottom: 1rem;
 }
 
+.image-wrapper {
+    height: 100%;
+    vertical-align: middle;
+    max-width: 320px;
+    padding: 10px
+}
+
 .valign-wrapper img {
     width: 100%;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+}
+
+.pl-30 {
+    padding-left: 30px !important;
 }
 
 #social-links a {

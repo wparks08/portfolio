@@ -1,0 +1,47 @@
+<div class="row animated {{fadeIn}} wow project-row card horizontal">
+    {{#if imageLeft}}
+        <div class="col m3 no-padding">
+            <div class="valign-wrapper image-wrapper">
+                <img class="responsive-img project-image" src="/image/{{imagePath}}" alt="{{name}} Image">
+            </div>
+        </div>
+    {{/if}}
+    
+    <div class="col m9 pl-30">
+        <div class="row">
+            <div class="col s12 center-align">
+                <h4>{{name}}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <p>{{description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                {{#each stack}}
+                <div class="chip">{{this.name}}</div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <p class="center card-links">
+                    {{#each links}}
+                    <a href="{{this.url}}" target="_blank">
+                        <ion-icon name="{{this.name}}" size="large"></ion-icon>
+                    </a>
+                    {{/each}}
+                </p>
+            </div>
+        </div>
+    </div>
+    {{#if imageRight}}
+    <div class="col m3 no-padding">
+        <div class="valign-wrapper image-wrapper">
+            <img class="responsive-img" src="/image/{{imagePath}}" alt="{{name}} Image">
+        </div>
+    </div>
+    {{/if}}
+</div>

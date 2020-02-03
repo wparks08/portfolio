@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Will Parks | Portfolio Admin</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+
+    <style>
+        .sidenav li>a {
+            color: #f5f5f5 !important;
+        }
+
+        .content-wrapper {
+            padding-left: 320px;
+        }
+
+        @media only screen and (max-width: 992px) {
+            .content-wrapper {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="grey darken-4 grey-text text-lighten-5">
+    <ul id="slide-out" class="sidenav sidenav-fixed grey darken-3">
+        <li>
+            <div class="user-view">
+                <div class="background pink accent-4">
+                </div>
+                <a href="#user"><img class="circle" src="/assets/img/will-parks.png"></a>
+                <a href="#name"><span class="white-text name">Will Parks</span></a>
+                <a href="#email"><span class="white-text email">wparks08@gmail.com</span></a>
+            </div>
+        </li>
+        <li><a href="/admin/home">Home</a></li>
+        <li><a href="/admin/projects">Projects</a></li>
+        <li><a href="/admin/software">Software</a></li>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+    <div class="content-wrapper">
+        {{{body}}}
+    </div>
+</body>
+
+</html>

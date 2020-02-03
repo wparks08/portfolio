@@ -1,0 +1,46 @@
+<div id="newSoftwareModal" class="modal">
+    <form action="/admin/software" method="POST">
+        <div class="modal-content">
+            <h4 class="black-text">Add New Software</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" name="name">
+                    <label for="name">Name</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            <button class="btn waves-effect waves-light green" type="submit">Save</button>
+        </div>
+    </form>
+</div>
+
+<h1>Software</h1>
+
+<div class="row">
+    <div class="col m2 s12 offset-m10">
+        <a class="btn waves-effect waves-light right modal-trigger" href="#newSoftwareModal">Add New Software
+            <i class="material-icons left">control_point</i>
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12">
+        <ul class="collection">
+            {{#each software}}
+            <li class="collection-item black-text">{{this.name}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+
+<script src="/assets/js/jquery-3.4.1.js"></script>
+<script src="/assets/js/materialize.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var elems = document.querySelectorAll(".modal");
+        var instances = M.Modal.init(elems, {});
+    })
+</script>

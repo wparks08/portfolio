@@ -1,0 +1,110 @@
+<div class="blue-grey darken-4 main-hero valign-wrapper z-depth-1-half row">
+    <div class="hero-wrapper">
+        <h1 class="white-text lighten-5 left-bias animated fadeInLeftBig">Hi, I'm Will.</h1>
+        <h2 class="grey-text lighten-5 right-bias"><span class="typed"></span></h2>
+        <hr class="animated zoomIn delay-1s">
+    </div>
+</div>
+
+<div class="container">
+    <h3 class="right-align">About Me</h3>
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <div class="card horizontal">
+                <div class="card-content about-me valign-wrapper">
+                    <ul class="stats-list">
+                        <li>
+                            <span class="title">Name</span>
+                            <span class="">Will Parks</span>
+                        </li>
+                        <li>
+                            <span class="title">Location</span>
+                            <span class="">Orangevale, CA</span>
+                        </li>
+                        <li>
+                            <span class="title">Birthdate</span>
+                            <span class="">3/9/1988</span>
+                        </li>
+                        <li>
+                            <span class="title">Email</span>
+                            <span class=""><a href="mailto:wparks08@gmail.com">wparks08@gmail.com</a></span>
+                        </li>
+                        <li>
+                            <span class="title">Phone</span>
+                            <span class=""><a href="tel:1-707-217-8649">(707) 217-8649</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="social-links">
+        <div class="col m2 s2 offset-m1 offset-s1 center-align grey-text text-darken-4">
+            <a href="https://www.github.com/wparks08" target="_blank">
+                <ion-icon name="logo-github" size="large"></ion-icon>
+            </a>
+        </div>
+        <div class="col m2 s2 center-align grey-text text-darken-4">
+            <a href="https://www.linkedin.com/in/will-parks-b2953048/" target="_blank">
+                <ion-icon name="logo-linkedin" size="large"></ion-icon>
+            </a>
+        </div>
+        <div class="col m2 s2 center-align grey-text text-darken-4">
+            <a href="https://twitter.com/wparks08" target="_blank">
+                <ion-icon name="logo-twitter" size="large"></ion-icon>
+            </a>
+        </div>
+        <div class="col m2 s2 center-align grey-text text-darken-4">
+            <a href="https://www.facebook.com/wparks08" target="_blank">
+                <ion-icon name="logo-facebook" size="large"></ion-icon>
+            </a>
+        </div>
+        <div class="col m2 s2 center-align grey-text text-darken-4">
+            <a href="assets/res/Will Parks - Resume 2019.pdf" target="_blank">
+                <i class="material-icons fs-32">picture_as_pdf</i>
+            </a>
+        </div>
+    </div>
+    <h3 class="right-align">Projects</h3>
+
+    {{#each projects}}
+    {{> project project=this}}
+    {{/each}}
+
+</div>
+
+<footer class="page-footer blue-grey">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Please feel free to reach out!</h5>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="mailto:wparks08@gmail.com">wparks08@gmail.com</a></li>
+                    <li><a class="grey-text text-lighten-3" href="tel:1-707-217-8649">(707) 217-8649</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2019 Will Parks
+            <a href="assets/res/Will Parks - Resume 2019.pdf" target="_blank" class="right">
+                <i class="material-icons fs-32">picture_as_pdf</i>
+            </a>
+            <a href="https://www.facebook.com/wparks08" target="_blank" class="right">
+                <ion-icon name="logo-facebook" size="large"></ion-icon>
+            </a>
+            <a href="https://twitter.com/wparks08" target="_blank" class="right">
+                <ion-icon name="logo-twitter" size="large"></ion-icon>
+            </a>
+            <a href="https://www.linkedin.com/in/will-parks-b2953048/" target="_blank" class="right">
+                <ion-icon name="logo-linkedin" size="large"></ion-icon>
+            </a>
+            <a href="https://www.github.com/wparks08" target="_blank" class="right">
+                <ion-icon name="logo-github" size="large"></ion-icon>
+            </a>
+        </div>
+    </div>
+</footer>

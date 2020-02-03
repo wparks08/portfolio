@@ -1,0 +1,117 @@
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet"/>
+<style>
+    li {
+        color: #000000 !important;
+    }
+</style>
+<!--suppress HtmlUnknownTarget -->
+<h1>Project</h1>
+<hr>
+<div class="container">
+    <div class="card black-text">
+        <form action="/admin/projects/{{project.id}}/update" method="POST" enctype="multipart/form-data">
+            <div class="card-content">
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" name="name" id="name" value="{{project.name}}">
+                        <label for="name">Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea name="description" id="description" cols="30" rows="10"
+                                  class="materialize-textarea">{{project.description}}</textarea>
+                        <label for="description">Description</label>
+                    </div>
+                </div>
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Upload</span>
+                        <input type="file" name="image">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" name="imagePath" value="{{project.imagePath}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12" id="links">
+                        {{#each project.links}}
+                            <p class="link">{{this.name}} | <a href="{{this.url}}" target="_blank">{{this.url}}</a></p>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s3">
+                        <input type="text" name="linkName" id="linkName">
+                        <label for="linkName">Name (Ionicon Name)</label>
+                        <span class="helper-text">Add another link</span>
+                    </div>
+                    <div class="input-field col s8">
+                        <input type="text" name="linkUrl" id="linkUrl">
+                        <label for="linkUrl">URL</label>
+                    </div>
+                    <div class="input-field col s1">
+                        <a class="btn-floating btn-small waves-effect waves-light green" id="addLink"><i
+                                class="material-icons">add</i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select name="stack" id="stack" multiple="multiple">
+                            {{#each software}}
+                                <option value="{{this.id}}" class="black-text">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-action">
+                <button type="submit" class="btn waves-effect waves-light green">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/assets/js/jquery-3.4.1.js"></script>
+<script src="/assets/js/materialize.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        M.updateTextFields();
+        let stackIds = [
+            {{#each software}}
+                {{#if this.checked}}
+                    {{this.id}},
+                {{/if}}
+            {{/each}}
+        ];
+
+        $("#stack")
+                .select2()
+                .val(stackIds)
+                .trigger("change")
+                .on("change", onStackChange);
+    });
+
+    function onStackChange() {
+        let updatedStack = $("#stack").val();
+        $.post("/admin/projects/{{project.id}}/updateStack", { updatedStack });
+    }
+
+    $("#addLink").on("click", function(event) {
+        event.preventDefault();
+
+        let link = {
+            name: $("#linkName").val().trim(),
+            url: $("#linkUrl").val().trim()
+        };
+
+        $.post("/admin/projects/{{project.id}}/addLink", link, function(data) {
+            console.log(data);
+            window.location.reload();
+        });
+    });
+</script>
