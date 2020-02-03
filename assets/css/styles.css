@@ -1,0 +1,104 @@
+html, body {
+    height: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+.main-hero {
+    height: 65%;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-wrapper {
+    width: 100%;
+    margin: 0 25% 0 25%;
+}
+
+.hero-wrapper hr {
+    border: 1px solid #b71c1c  ;
+}
+
+.left-bias {
+    width: 100%;
+    text-align: left;
+}
+
+.right-bias {
+    width: 100%;
+    text-align: right;
+}
+
+.card-content.about-me {
+    width: 100%;
+}
+
+.stats-list {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.stats-list li {
+    clear: both;
+    margin-bottom: 12px;
+}
+
+.stats-list .title {
+    display: block;
+    float: left;
+    width: 150px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.p2 {
+    padding: 20px 30px;
+}
+
+.card-links {
+    margin-bottom: -10px !important;
+}
+
+.fs-32 {
+    font-size: 32px;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-separator {
+    border: 0;
+    border-top: 1px solid #b71c1c;
+    margin-bottom: 1rem;
+}
+
+.valign-wrapper img {
+    width: 100%;
+}
+
+#social-links a {
+    color: #757575;
+}
+
+@media only screen and (max-width: 768px) {
+    .hero-wrapper {
+        margin: 0;
+    }
+
+    .hero-wrapper hr {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .left-bias, .right-bias {
+        text-align: center;
+    }
+
+    .profile-image {
+        position: relative;
+    }
+}
