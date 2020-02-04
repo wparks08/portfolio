@@ -33,3 +33,7 @@ You may access the app here: [Portfolio -- Will Parks](https://ancient-plateau-1
 ## Credits
 
 - <b>Developed By: </b>  Will Parks -- [wparks08](https://www.github.com/wparks08)
+
+## Future Development
+
+In the future, I would like to further refine the design as my front-end skills develop. I would also like to add the ability to re-order projects as they are displayed, and add the ability to filter projects by the technology/stack used.
