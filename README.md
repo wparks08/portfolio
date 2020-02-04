@@ -16,6 +16,12 @@ My Portfolio is currently deployed to Heroku.
 
 You may access the app here: [Portfolio -- Will Parks](https://ancient-plateau-19079.herokuapp.com/)
 
+## Admin Portal
+
+There is an admin portal, allowing me to manage projects displayed on the portfolio, but it isn't available for the public to see or use. It allows me to add new projects, add new software and technologies, upload project images, add new project links, and manage the stack/packages that should be shown for each project.
+
+![AdminPortal](./public/assets/img/project-admin.gif)
+
 ## Technologies Used
 <b>Built With</b>
 
@@ -29,6 +35,7 @@ You may access the app here: [Portfolio -- Will Parks](https://ancient-plateau-1
 - [MySQL](https://www.mysql.com)
 - [Handlebars](https://handlebarsjs.com/)
 - [Tom Tom SDK](https://developer.tomtom.com/maps-sdk-web-js)
+- [select2](https://select2.org/)
 
 ## Credits
 
