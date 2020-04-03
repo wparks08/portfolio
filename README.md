@@ -34,8 +34,8 @@ There is an admin portal, allowing me to manage projects displayed on the portfo
     - [Sequelize](https://sequelize.org/)
 - [MySQL](https://www.mysql.com)
 - [Handlebars](https://handlebarsjs.com/)
-- [Tom Tom SDK](https://developer.tomtom.com/maps-sdk-web-js)
 - [select2](https://select2.org/)
+- [AWS S3](https://aws.amazon.com/s3)
 
 ## Credits
 
