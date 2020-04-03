@@ -1,16 +1,16 @@
 require("dotenv").config();
-var express = require("express");
-var exphbrs = require("express-handlebars");
-var session = require("express-session");
-var passport = require("passport");
-var fileUpload = require("express-fileupload");
-var authentication = require("./controllers/authentication");
+const express = require("express");
+const exphbrs = require("express-handlebars");
+const session = require("express-session");
+const passport = require("passport");
+const fileUpload = require("express-fileupload");
+const authentication = require("./controllers/authentication");
 
-var db = require("./models");
+const db = require("./models");
 
 // Setup app
-var app = express();
-var PORT = process.env.PORT || 3000;
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -19,15 +19,17 @@ app.use(express.static("public"));
 app.use(session({ secret: process.env.SESSION_SECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(fileUpload({
-    limits: { fileSize: 50 * 1024 * 1024 }
-}));
+app.use(
+    fileUpload({
+        limits: { fileSize: 50 * 1024 * 1024 }
+    })
+);
 
 // Passport config
 authentication.config(passport);
 
 // Initialize handlebars
-var hbrsOptions = {
+const hbrsOptions = {
     defaultLayout: "main",
     allowProtoPropertiesByDefault: true
 };
@@ -40,17 +42,13 @@ require("./routes/adminRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 // Set sequelize options
-var syncOptions = {
+const syncOptions = {
     force: false
 };
 
 // Sync models and start server
 db.sequelize.sync(syncOptions).then(() => {
     app.listen(PORT, () => {
-        console.log(
-            "Listening on port %s. Visit http://localhost:%s/ in your browser.",
-            PORT,
-            PORT
-        );
+        console.log("Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
     });
 });

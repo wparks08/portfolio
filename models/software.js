@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     software.associate = function(models) {
         // associations can be defined here
         models.software.belongsToMany(models.project, {
-          through: "projects_software"
+            through: "projects_software"
         });
     };
     return software;
