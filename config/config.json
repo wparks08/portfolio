@@ -1,22 +1,49 @@
 {
-  "development": {
-    "username": "root",
-    "password": "password",
-    "database": "portfolio",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "testdb",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
-  },
-  "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
-  }
+    "development": {
+        "username": "root",
+        "password": "password",
+        "database": "portfolio",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "operatorsAliases": false
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "testdb",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "operatorsAliases": false
+    },
+    "production": {
+        "use_env_variable": "JAWSDB_URL",
+        "dialect": "mysql"
+    },
+    "fileUpload": {
+        "options": {
+            "limits": {
+                "fileSize": 52428800
+            }
+        }
+    },
+    "viewEngine": {
+        "name": "handlebars",
+        "options": {
+            "defaultLayout": "main",
+            "allowProtoPropertiesByDefault": true
+        }
+    },
+    "sequelize": {
+        "sync": {
+            "force": false
+        }
+    },
+    "static": {
+        "folder": "public"
+    },
+    "urlencoded": {
+        "options": {
+            "extended": false
+        }
+    }
 }
