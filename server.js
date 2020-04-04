@@ -4,8 +4,8 @@ const exphbrs = require("express-handlebars");
 const session = require("express-session");
 const passport = require("passport");
 const fileUpload = require("express-fileupload");
-const authentication = require("./controllers/authentication");
-const config = require("./config/config");
+const authentication = require("./util/authentication");
+const config = require("./config/config.json");
 const db = require("./models");
 
 // Setup app

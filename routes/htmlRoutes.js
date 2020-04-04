@@ -1,5 +1,5 @@
 var db = require("../models");
-var s3 = require("../controllers/awss3");
+var s3 = require("../util/awss3");
 
 module.exports = function(app) {
     app.get("/", (req, res) => {

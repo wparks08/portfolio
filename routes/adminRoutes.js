@@ -1,7 +1,7 @@
-var auth = require("../controllers/authentication");
+var auth = require("../util/authentication");
 var db = require("../models");
 var passport = require("passport");
-var s3 = require("../controllers/awss3");
+var s3 = require("../util/awss3");
 
 module.exports = function(app) {
     app.get("/admin/login", (req, res) => {
