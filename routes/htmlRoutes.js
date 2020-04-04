@@ -7,11 +7,11 @@ module.exports = function(app) {
 
         getAllProjects()
             .then(projects => {
-                addFadeToProjects(projects);
                 // Need to map projects to a new object, due to new Handlebars restrictions (>4.6.0)
                 // https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access
-                const allProjects = convertProjectsToOwnObjects(projects);
-
+                const sortedProjects = sortProjectsByOrder(projects);
+                const animatedSortedProjects = addFadeToProjects(sortedProjects);
+                const allProjects = convertProjectsToOwnObjects(animatedSortedProjects);
                 res.render("index", {
                     projects: allProjects
                 });
@@ -59,7 +59,7 @@ function getAllProjects() {
 }
 
 function addFadeToProjects(projects) {
-    projects.forEach((project, index) => {
+    return projects.map((project, index) => {
         if (index % 2 === 0 || index === 0) {
             project.fadeIn = "fadeInRight";
             project.imageLeft = true;
@@ -69,6 +69,7 @@ function addFadeToProjects(projects) {
             project.imageLeft = false;
             project.imageRight = true;
         }
+        return project;
     });
 }
 
@@ -93,7 +94,12 @@ function convertProjectsToOwnObjects(projects) {
                 return {
                     name: software.name
                 };
-            })
+            }),
+            order: project.order
         };
     });
+}
+
+function sortProjectsByOrder(projects) {
+    return projects.sort((a, b) => a.order - b.order);
 }

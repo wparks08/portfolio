@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
         {
             name: DataTypes.STRING,
             description: DataTypes.TEXT,
-            imagePath: DataTypes.STRING
+            imagePath: DataTypes.STRING,
+            order: DataTypes.INTEGER
         },
         {}
     );
