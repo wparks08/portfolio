@@ -30,7 +30,6 @@ app.set("view engine", config.viewEngine.name);
 
 // Add routes
 require("./routes/admin")(app);
-require("./routes/adminRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 // Sync models and start server

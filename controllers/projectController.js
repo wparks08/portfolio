@@ -3,6 +3,7 @@ const db = require("../models");
 /*
 TODO: This file needs to be refactored. Plenty of spots where code
       may be reused.
+      Constructors would probably make this a lot more readable.
  */
 
 module.exports = {
