@@ -43,4 +43,6 @@ There is an admin portal, allowing me to manage projects displayed on the portfo
 
 ## Future Development
 
-In the future, I would like to further refine the design as my front-end skills develop. I would also like to add the ability to re-order projects as they are displayed, and add the ability to filter projects by the technology/stack used.
+In the future, I would like to further refine the design as my front-end skills develop.
+ Project reordering has been added to the db and models, but needs to be implemented in
+ the admin UI. I would also like to implement the ability to filter projects by the technology/stack used.
