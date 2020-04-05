@@ -22,13 +22,14 @@ app.use(passport.session());
 app.use(fileUpload(config.fileUpload.options));
 
 // Passport config
-authentication.config(passport);
+authentication.config();
 
 // Initialize view engine
 app.engine(config.viewEngine.name, exphbrs(config.viewEngine.options));
 app.set("view engine", config.viewEngine.name);
 
 // Add routes
+require("./routes/admin")(app);
 require("./routes/adminRoutes")(app);
 require("./routes/htmlRoutes")(app);
 

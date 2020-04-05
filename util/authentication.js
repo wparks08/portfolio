@@ -1,9 +1,10 @@
-var LocalStrategy = require("passport-local");
-var bcrypt = require("bcryptjs");
-var db = require("../models");
+const LocalStrategy = require("passport-local");
+const bcrypt = require("bcryptjs");
+const db = require("../models");
+const passport = require("passport");
 
 module.exports = {
-    config: function(passport) {
+    config: function() {
         passport.use(
             new LocalStrategy(function(username, password, done) {
                 db.user.findOne({ where: { username: username } }).then(user => {
@@ -46,5 +47,11 @@ module.exports = {
             req.session.returnTo = req.originalUrl;
             res.redirect("/admin/login");
         }
-    }
+    },
+
+    authenticate: passport.authenticate("local", {
+        successRedirect: "/admin/loginRedirect",
+        failureRedirect: "/admin/login",
+        failureFlash: false // I'm the only user - not feeling the need to give myself "incorrect password" messages
+    })
 };
