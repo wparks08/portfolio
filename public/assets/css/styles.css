@@ -37,6 +37,7 @@ a {
 
 .stats-list {
     margin: 0 auto;
+    width: fit-content;
 }
 
 .stats-list li {
@@ -75,6 +76,10 @@ a {
     margin-bottom: 1rem;
 }
 
+.separator {
+    margin: 1rem auto;
+}
+
 .image-wrapper {
     height: 100%;
     vertical-align: middle;
@@ -82,13 +87,12 @@ a {
     padding: 10px
 }
 
-.valign-wrapper img {
-    width: 100%;
-    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
-}
-
 .pl-30 {
     padding-left: 30px !important;
+}
+
+.p-7 {
+    padding: 7px;
 }
 
 #social-links a {
