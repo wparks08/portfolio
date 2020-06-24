@@ -1,4 +1,5 @@
 const db = require("../models");
+const s3 = require("../util/awss3");
 
 /*
 TODO: This file needs to be refactored. Plenty of spots where code
